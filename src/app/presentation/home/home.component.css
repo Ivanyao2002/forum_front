@@ -1,0 +1,63 @@
+:root {
+    --primary-color: #0c6dfc;
+    --secondary-color: #6c757d;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background: linear-gradient(130deg, #2a7efa, #765bfc);
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(107, 72, 255, 0.2);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(107, 72, 255, 0.3);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.vh-50 {
+    height: 50vh !important;
+}
+
+.feature-icon {
+    color: #765bfc;
+    margin-bottom: 1rem;
+}
+
+.quote {
+    color: #FFF;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    position: relative;
+    top: -0.2em;
+}

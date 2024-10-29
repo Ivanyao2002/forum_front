@@ -1,0 +1,36 @@
+<div class="container py-4">
+    <div class="form-container">
+        <div class="card forum-form">
+            <div class="card-body">
+                <h2 class="card-title mb-4">Créer un nouveau forum</h2>
+                <form [formGroup]="forumForm" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Titre du forum</label>
+                      <input type="text" class="form-control" id="name" formControlName="name"
+                             [class.is-invalid]="isInvalid(forumForm.controls['name'])">
+                      <strong *ngIf="isInvalid(forumForm.controls['name'])" class="text-danger">
+                        Veuillez entrer un nom pour le forum.
+                      </strong>
+                    </div>
+                    <div class="mb-3">
+                      <label for="description" class="form-label">Description</label>
+                      <textarea class="form-control" id="description" rows="3" formControlName="description"
+                                [class.is-invalid]="isInvalid(forumForm.controls['description'])"></textarea>
+                      <strong *ngIf="isInvalid(forumForm.controls['description'])" class="text-danger">
+                        <ng-container *ngIf="forumForm.controls['description'].hasError('required')">
+                          Veuillez entrer une description pour le forum
+                        </ng-container>
+                        <ng-container *ngIf="forumForm.controls['description'].hasError('minlength')">
+                          La description doit comporter au moins 10 caractères
+                        </ng-container>
+                      </strong>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Créer le forum</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

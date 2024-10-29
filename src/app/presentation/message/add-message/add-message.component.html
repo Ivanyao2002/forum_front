@@ -1,0 +1,49 @@
+<div class="container py-4">
+    <div class="form-container">
+        <div class="card forum-form">
+            <div class="card-body">
+                <h2 class="card-title mb-4">Créer un nouveau message</h2>
+                <form [formGroup]="messageForm" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                      <label for="content" class="form-label">Contenu</label>
+                      <textarea class="form-control" id="content" rows="3" formControlName="content"
+                                [class.is-invalid]="isInvalid(messageForm.controls['content'])"></textarea>
+                      <strong *ngIf="isInvalid(messageForm.controls['content'])" class="text-danger">
+                        <ng-container *ngIf="messageForm.controls['content'].hasError('required')">
+                          Veuillez entrer un contenu
+                        </ng-container>
+                        <ng-container *ngIf="messageForm.controls['content'].hasError('minlength')">
+                          Le contenu doit comporter au moins 10 caractères
+                        </ng-container>
+                      </strong>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="topic" class="form-label">Catégorie Sujet</label>
+                        <select class="form-select" id="topic" formControlName="topic"
+                                [class.is-invalid]="isInvalid(messageForm.controls['topic'])">
+                            <option selected>Choisir un sujet</option>
+                            <option value="general">Sujet Général</option>
+                            <option value="tech">Sujet Technologie</option>
+                            <option value="gaming">Sujet Gaming</option>
+                            <option value="other">Autre</option>
+                        </select>
+                      <strong *ngIf="isInvalid(messageForm.controls['topic'])" class="text-danger">
+                        <ng-container *ngIf="messageForm.controls['topic'].hasError('required')">
+                          Veuillez entrer un sujet
+                        </ng-container>
+                        <ng-container *ngIf="messageForm.controls['topic'].hasError('minlength')">
+                          Le sujet doit comporter au moins 10 caractères
+                        </ng-container>
+                      </strong>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Créer le message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

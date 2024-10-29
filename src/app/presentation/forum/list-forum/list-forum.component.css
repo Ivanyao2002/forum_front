@@ -1,0 +1,12 @@
+.forum-item {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+.forum-item:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+    border-color: var(--primary-color);
+}

@@ -1,0 +1,7 @@
+.message-item {
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 0.25rem;
+}

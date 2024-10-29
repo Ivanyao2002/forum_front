@@ -1,0 +1,25 @@
+<div class="container py-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/">Forum'It</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/list-forum">Forums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/list-topic">Sujets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/list-message">Messages</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<router-outlet></router-outlet>

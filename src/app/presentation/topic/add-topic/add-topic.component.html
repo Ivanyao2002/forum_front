@@ -1,0 +1,49 @@
+<div class="container py-4">
+    <div class="form-container">
+        <div class="card forum-form">
+            <div class="card-body">
+                <h2 class="card-title mb-4">Créer un nouveau sujet</h2>
+                <form [formGroup]="topicForm" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                      <label for="title" class="form-label">Titre du sujet</label>
+                      <input type="text" class="form-control" id="title" formControlName="title"
+                             [class.is-invalid]="isInvalid(topicForm.controls['title'])">
+                      <strong *ngIf="isInvalid(topicForm.controls['title'])" class="text-danger">
+                        <ng-container *ngIf="topicForm.controls['title'].hasError('required')">
+                          Veuillez entrer un titre
+                        </ng-container>
+                        <ng-container *ngIf="topicForm.controls['title'].hasError('minlength')">
+                          Le titre doit comporter au moins 10 caractères
+                        </ng-container>
+                      </strong>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="forum" class="form-label">Catégorie Forum</label>
+                        <select class="form-select" id="forum" formControlName="forum"
+                                [class.is-invalid]="isInvalid(topicForm.controls['forum'])">
+                            <option selected>Choisir un forum</option>
+                            <option value="general">Général</option>
+                            <option value="tech">Technologie</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="other">Autre</option>
+                        </select>
+                      <strong *ngIf="isInvalid(topicForm.controls['forum'])" class="text-danger">
+                        <ng-container *ngIf="topicForm.controls['forum'].hasError('required')">
+                          Veuillez entrer un forum
+                        </ng-container>
+                        <ng-container *ngIf="topicForm.controls['forum'].hasError('minlength')">
+                          Le forum doit comporter au moins 10 caractères
+                        </ng-container>
+                      </strong>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Créer le sujet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
